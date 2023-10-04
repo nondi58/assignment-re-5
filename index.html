@@ -35,7 +35,7 @@
       <div class="flex flex-col lg:flex-row">
         <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 mt-8 gap-3">
           <!-- first-card -->
-          <div id="first-card" class="card w-96 bg-base-100 shadow-xl">
+          <div id="first-card" onclick="getAccesPrice()" class="card w-96 bg-base-100 shadow-xl">
             <figure><img class="px-5 pt-3 w-9/12" style="background-color: rgba(17, 17, 17, 0.05); width: 302px;height: 200px;
                             " src="images/prod1.png" alt="Shoes" /></figure>
             <div class="card-body ">
@@ -47,7 +47,7 @@
                 <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500" />
               </div>
               <h2 class="card-title px-12 ">K. Accessories</h2>
-              <p class="px-12 ">39.00 TK</p>
+              <p  class="px-12 "> <span id="price">39.00</span>TK</p>
 
             </div>
           </div>
@@ -92,16 +92,17 @@
           <h2 class="text-2xl">Have coupon?</h2>
           <div class="form-control">  
             <label class="input-group">
-              <input type="text" placeholder="cupon code" class="input input-bordered" />
-              <button class="bg-pink-500 border w-{150px} text-white">Apply</button>
+              <input type="text" placeholder="cupon code" class="input input-bordered" id="inputCupon" />
+              <button id="applyButton" class="bg-pink-500 border w-{150px} text-white" >Apply</button>
             </label>
           </div>
           <div id="calculaton-entry">
           </div>
           <div class="mt-8 text-2xl">
-            <h3>Total price:<span>00</span>TK</h3>
-            <h3>Discount price:<span>00</span>TK</h3>
-            <h3>Total:<span>00</span>TK</h3>
+            <h3 >Total price:<span id="total-price">00</span>TK</h3>
+            <h3>Discount price:<span id="discountPrice">00</span>TK</h3>
+            <h3>Total:<span id="total">00</span>TK</h3>
+            <button id="makeButton" class="bg-pink-500 border  w-{150px} text-white" >Make Purchase</button>
           </div>
 
         </div>
@@ -109,6 +110,11 @@
       </div>
 
 
+    </section>
+    <section>
+      <div id="trial" class="grid grid-cols-3">
+
+      </div>
     </section>
     <!-- Kitchenware-part-end -->
     <!-- Sportswear-part-start -->
@@ -178,6 +184,7 @@
     </section>
   </main>
   <script src="javascript/javas.js"></script>
+  <script src="javascript/new.js"></script>
   
 
 </body>

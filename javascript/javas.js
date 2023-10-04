@@ -4,13 +4,14 @@ const product = [
         id: 1,
         price: 100,
         name: "Home-maker",
+
         img: "https://i.ibb.co/YB3r48S/prod1.png"
     },
     {
         id: 2,
         price: 70,
         name: "sports",
-        img: "https://i.ibb.co/YB3r48S/prod1.png"
+        img: "https://i.ibb.co/BcMxzR8/prod2.png"
 
     },
     {
@@ -19,21 +20,44 @@ const product = [
         name: "capsule",
         img: "https://i.ibb.co/YB3r48S/prod1.png"
 
+    },
+    {
+        id: 4,
+        price: 70,
+        name: "sports",
+        img: "https://i.ibb.co/BcMxzR8/prod2.png"
+
+    },
+    {
+        id: 5,
+        price: 70,
+        name: "sports",
+        img: "https://i.ibb.co/BcMxzR8/prod2.png"
+
+    },
+    {
+        id: 6,
+        price: 70,
+        name: "sports",
+        img: "https://i.ibb.co/BcMxzR8/prod2.png"
+
     }
 ];
 
 function testFunction(name, price) {
-    console.log(name, price);
+    // console.log(name, price);
+    setName(name);
+
     setTotal(price);
 }
-const applyButton= document.querySelector('#applyButton');
-const makePurchase= document.querySelector("#makeButton");
+const applyButton = document.querySelector('#applyButton');
+const makePurchase = document.querySelector("#makeButton");
 applyButton.setAttribute("disabled", true);
 makePurchase.setAttribute('disabled', true);
 
 
 const trialDiv = document.querySelector("#trial");
-const total= document.querySelector('#total');
+const total = document.querySelector('#total');
 product.forEach(element => {
     let div = document.createElement('div');
     div.innerHTML = `
@@ -51,34 +75,29 @@ product.forEach(element => {
     trialDiv.appendChild(div);
 })
 
-
-
-
-function getAccesPrice() {
-    caculateAreaTotal('Home-maker');
-    const homePrice = getInputValue('price');
-    const totalPrice = getInputValue('total-price')
-    const total = totalPrice + homePrice;
-    totalPrice.innerText = total;
-    setTotal(totalPrice);
-
-
-}
-function caculateAreaTotal(shapeType) {
-    console.log(shapeType);
+function setName(name) {
     const calculationEntry = document.getElementById('calculaton-entry');
     const p = document.createElement('p');
-    p.innerHTML = `${shapeType}`
+    p.innerHTML = `${name} `;
     calculationEntry.appendChild(p);
+
+
+
 }
+
+
 function setTotal(price) {
     const totalAmount = document.getElementById('total-price');
-    totalPrice += parseInt(price) ;
+    totalPrice += parseInt(price);
     totalAmount.innerHTML = `${totalPrice}`;
-    total.innerText= `${totalPrice}`;
-    if(totalPrice>=200){
+    total.innerText = `${totalPrice}`;
+    if (totalPrice >= 200) {
         applyButton.removeAttribute('disabled');
+
+    }
+    else if (totalPrice > 0) {
         makePurchase.removeAttribute('disabled');
+
     }
 
 }
@@ -91,17 +110,22 @@ function getInputValue(inputVal) {
     return val;
 
 }
-document.querySelector("#applyButton").addEventListener('click', function(){
-    const cupon= document.querySelector("#inputCupon");
-    if(cupon.value!=='SELL200'){
+document.querySelector("#applyButton").addEventListener('click', function () {
+    const cupon = document.querySelector("#inputCupon");
+    if (cupon.value !== 'SELL200') {
         alert("Please use valid cupon");
         return;
     }
-    else{
-        const discount= document.querySelector("#discountPrice");
-        discount.innerText=`${totalPrice*0.2}`
+    else {
+        const discount = document.querySelector("#discountPrice");
+        discount.innerText = `${totalPrice * 0.2}`
 
-        total.innerText=`${totalPrice-totalPrice*0.2}`
+        total.innerText = `${totalPrice - totalPrice * 0.2}`
     }
 })
 
+
+document.getElementById('makeButton').addEventListener('click', function(){
+    
+
+})
